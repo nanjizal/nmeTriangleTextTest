@@ -36,7 +36,7 @@ class Main {
         var imgDrawing = new ImageDrawing();
         imgDrawing.startFrame( framebuffer );
         var str = "The quick brown fox jumps over the lazy dog.";
-        var scale = 2.;
+        var scale = .6;
         var gridX = 57.;
         var gridY = 60.;
         var y = 40.;
@@ -51,7 +51,7 @@ class Main {
         var spaceInt = 0;
         for( i in 0...str.length ){
             var charCode = str.charCodeAt( i );
-            var no = charCode - 97 + 65 - 7;
+            var no = charCode - 97 + 65;
             if( no < 0 ) no = 0;
             if( no == spaceInt ) lastSpace = i;
             currX += dx;
@@ -68,9 +68,8 @@ class Main {
         var theta = (haxe.Timer.stamp()-t0);
         for( i in 0...str.length ){
             var charCode = str.charCodeAt( i );
-            var no = charCode - 97 + 65 - 7;
+            var no = charCode - 97 + 65;
             if( no < 0 ) no = 0;
-            trace( no );
             var j = i%colors.length;
             sin = 10*Math.sin( theta * i );
             imgDrawing.drawImageGridIndexColor( Assets.images.font1AlphaWhite, no, currX, y + sin, gridX, gridY, scale, colors[ j ], 0.9 );
